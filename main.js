@@ -1,7 +1,6 @@
 
 const config = require('./config');
 
-// Mascarar informações sensíveis
 function mascarar(valor) {
     if (!valor) {
         return '[NÃO CONFIGURADO]';

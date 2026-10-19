@@ -1,7 +1,6 @@
 
 require('dotenv').config();
 
-// 1. Validar as variáveis obrigatórias
 const obrigatorias = [
     'PAYMENT_API_KEY',
     'JWT_SECRET'
@@ -11,7 +10,6 @@ const faltando = obrigatorias.filter((variavel) => {
     return !process.env[variavel]?.trim();
 });
 
-// 2. Interromper a inicialização se houver erros
 if (faltando.length > 0) {
     console.error(
         '\n[ERRO DE CONFIGURAÇÃO] Não foi possível iniciar a aplicação.'
@@ -28,7 +26,6 @@ if (faltando.length > 0) {
     process.exit(1);
 }
 
-// 3. Centralizar as configurações
 const config = {
     app: {
         port: Number(process.env.PORT) || 5000,
@@ -49,5 +46,4 @@ const config = {
     }
 };
 
-// 4. Exportar o objeto
 module.exports = config;
